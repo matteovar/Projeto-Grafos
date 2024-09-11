@@ -1,5 +1,3 @@
-
-
 class TGrafoND:
     TAM_MAX_DEFAULT = 100
     def __init__(self, n=TAM_MAX_DEFAULT):
@@ -15,7 +13,7 @@ class TGrafoND:
         else:
             print("Aresta ja existe")
 
-    def insereV(self,v):
+    def insereV(self):
         self.n += 1
         nova_linha = [0.0] * self.n
         self.adj.append(nova_linha)
@@ -73,6 +71,7 @@ class TGrafoND:
                     if self.adj[i][j] != self.adj[j][i]:
                         return True  
             return False 
+    
     def show(self):
         print(f"\n n: {self.n:2d} ", end="")
         print(f"m: {self.m:2d}\n")
