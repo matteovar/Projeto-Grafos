@@ -13,13 +13,14 @@ class TGrafoND:
         else:
             print("Aresta ja existe")
 
-    def insereV(self):
+    def insereV(self, nome_vertice):
         self.n += 1
+        self.nomes_vertices.append(nome_vertice)  # Adiciona o nome do novo vértice
         nova_linha = [0.0] * self.n
         self.adj.append(nova_linha)
 
         for i in range(self.n - 1):
-            self.adj[i].append(0.0)  
+            self.adj[i].append(0.0)   
 
     def removeA(self, v, w):
         if self.adj[v][w] != 0.0 and self.adj[w][v] != 0.0:
@@ -28,16 +29,30 @@ class TGrafoND:
             self.m -= 1
 
     def removeV(self, v):
+        if v >= self.n:
+            print("Vértice inválido!")
+            return
+
+        # Remover todas as arestas conectadas ao vértice v
         for i in range(self.n):
-            if self.adj[v][i] != 0.0 and self.adj[i][v]!=0.0: 
-                self.removeA(v, i)
+            if self.adj[v][i] != 0.0:  # Verifica se existe aresta entre v e i
+                self.removeA(v, i)  # Remove a aresta v <-> i
 
-        self.adj.pop(v)
-
+        # Remove o vértice da matriz de adjacência
+        self.adj.pop(v)  # Remove a linha correspondente ao vértice v
         for i in range(len(self.adj)):
-            self.adj[i].pop(v)
+            self.adj[i].pop(v)  # Remove a coluna correspondente ao vértice v
+
+        # Remove o nome do vértice da lista de nomes
+        self.nomes_vertices.pop(v)
+
+        # Atualiza o número de vértices
         self.n -= 1
 
+        print(f"Vértice {v} removido com sucesso.")
+
+    
+    
     def dfs(self, v, visitados):
         visitados[v] = True  
         for i in range(self.n):
@@ -101,10 +116,11 @@ class TGrafoND:
             linhas = arquivo.readlines()
             tipo_grafo = int(linhas[0].strip())
             num_vertices = int(linhas[1].strip())
-            vertices = []
+            self.nomes_vertices = []
             for i in range(2, 2 + num_vertices):
-                _, indice = linhas[i].strip().rsplit(maxsplit=1)
-                vertices.append(int(indice))
+                descricao, indice = linhas[i].strip().rsplit(maxsplit=1)
+                self.nomes_vertices.append(descricao)
+
             num_arestas_index = 2 + num_vertices
             num_arestas = int(linhas[num_arestas_index].strip())
             self.n = num_vertices
@@ -113,8 +129,6 @@ class TGrafoND:
             for i in range(num_arestas_index + 1, num_arestas_index + 1 + num_arestas):
                 v, w, peso = map(int, linhas[i].strip().split())
                 self.insereA(v, w, peso)
-            
-
 
     def carregarDoArquivo2(self, nome_arquivo):
         with open(nome_arquivo, 'r') as arquivo:
@@ -127,7 +141,7 @@ class TGrafoND:
             arquivo.write(f"2\n")
             arquivo.write(f"{self.n}\n")
             for i in range(self.n):
-                arquivo.write(f"{i}\n")
+                arquivo.write(f"{self.nomes_vertices[i]} {i}\n")
             num_arestas = 0
             for i in range(self.n):
                 for j in range(i+1, self.n):

@@ -2,57 +2,57 @@
 Grafo original:
 2
 51
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
+Gru 0
+Brasilia 1
+Fortaleza 2
+Maceio 3
+Manaus 4
+Florianopolis 5
+Goiania 6
+Galeao-RJ 7
+Confins 8
+Belem 9
+Porto_Alegre 10
+Santos_Dumont 11
+Cuiaba 12
+Salvador 13
+Recife 14
+Vitoria 15
+Curitiba 16
+Natal 17
+Vira-copos 18
+Congonhas 19
+joao_pesso 20
+uberlandia 21
+Campo_Grande 22
+foz_do_Iguacu 23
+Sao_Luiz 24
+Aracaju 25
+Agua_Boa 26
+Almerim 27
+Almerim_M_dourado 28
+Alta_Floresta 29
+Altamira 30
+Apucarana 31
+Aracatuba 32
+Araguaina 33
+Barreiras 34
+Bauru-Arealva 35
+Boa_Vista 36
+Bonito 37
+Breves 38
+Cacador 39
+Caldas_Nova 40
+Campina Grande 41
+Campos_dos_Goytacazes 42
+Carajas 43
+Cararuari 44
+Caruaru 45
+Cascavel 46
+Caixias_do_Sul 47
+Chapeco 48
+Coari_Urucu 49
+Cruz 50
 189
 0 1 864
 0 2 2357
@@ -352,58 +352,59 @@ Adj[50, 0] = 2382.00 Adj[50, 1] = 0.00 Adj[50, 2] = 0.00 Adj[50, 3] = 0.00 Adj[5
 fim da impressao do grafo.
 
 Grafo apos remover o vertice:7
+Vértice 7 removido com sucesso.
 2
 50
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
+Gru 0
+Brasilia 1
+Fortaleza 2
+Maceio 3
+Manaus 4
+Florianopolis 5
+Goiania 6
+Confins 7
+Belem 8
+Porto_Alegre 9
+Santos_Dumont 10
+Cuiaba 11
+Salvador 12
+Recife 13
+Vitoria 14
+Curitiba 15
+Natal 16
+Vira-copos 17
+Congonhas 18
+joao_pesso 19
+uberlandia 20
+Campo_Grande 21
+foz_do_Iguacu 22
+Sao_Luiz 23
+Aracaju 24
+Agua_Boa 25
+Almerim 26
+Almerim_M_dourado 27
+Alta_Floresta 28
+Altamira 29
+Apucarana 30
+Aracatuba 31
+Araguaina 32
+Barreiras 33
+Bauru-Arealva 34
+Boa_Vista 35
+Bonito 36
+Breves 37
+Cacador 38
+Caldas_Nova 39
+Campina Grande 40
+Campos_dos_Goytacazes 41
+Carajas 42
+Cararuari 43
+Caruaru 44
+Cascavel 45
+Caixias_do_Sul 46
+Chapeco 47
+Coari_Urucu 48
+Cruz 49
 174
 0 1 864
 0 2 2357
@@ -688,57 +689,57 @@ fim da impressao do grafo.
 Grafo apos inserir um vertice
 2
 51
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
+Gru 0
+Brasilia 1
+Fortaleza 2
+Maceio 3
+Manaus 4
+Florianopolis 5
+Goiania 6
+Confins 7
+Belem 8
+Porto_Alegre 9
+Santos_Dumont 10
+Cuiaba 11
+Salvador 12
+Recife 13
+Vitoria 14
+Curitiba 15
+Natal 16
+Vira-copos 17
+Congonhas 18
+joao_pesso 19
+uberlandia 20
+Campo_Grande 21
+foz_do_Iguacu 22
+Sao_Luiz 23
+Aracaju 24
+Agua_Boa 25
+Almerim 26
+Almerim_M_dourado 27
+Alta_Floresta 28
+Altamira 29
+Apucarana 30
+Aracatuba 31
+Araguaina 32
+Barreiras 33
+Bauru-Arealva 34
+Boa_Vista 35
+Bonito 36
+Breves 37
+Cacador 38
+Caldas_Nova 39
+Campina Grande 40
+Campos_dos_Goytacazes 41
+Carajas 42
+Cararuari 43
+Caruaru 44
+Cascavel 45
+Caixias_do_Sul 46
+Chapeco 47
+Coari_Urucu 48
+Cruz 49
+Goiania 50
 174
 0 1 864
 0 2 2357
@@ -1025,57 +1026,57 @@ fim da impressao do grafo.
 Grafo apos inserir aresta 50 31 e com peso 1879
 2
 51
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
+Gru 0
+Brasilia 1
+Fortaleza 2
+Maceio 3
+Manaus 4
+Florianopolis 5
+Goiania 6
+Confins 7
+Belem 8
+Porto_Alegre 9
+Santos_Dumont 10
+Cuiaba 11
+Salvador 12
+Recife 13
+Vitoria 14
+Curitiba 15
+Natal 16
+Vira-copos 17
+Congonhas 18
+joao_pesso 19
+uberlandia 20
+Campo_Grande 21
+foz_do_Iguacu 22
+Sao_Luiz 23
+Aracaju 24
+Agua_Boa 25
+Almerim 26
+Almerim_M_dourado 27
+Alta_Floresta 28
+Altamira 29
+Apucarana 30
+Aracatuba 31
+Araguaina 32
+Barreiras 33
+Bauru-Arealva 34
+Boa_Vista 35
+Bonito 36
+Breves 37
+Cacador 38
+Caldas_Nova 39
+Campina Grande 40
+Campos_dos_Goytacazes 41
+Carajas 42
+Cararuari 43
+Caruaru 44
+Cascavel 45
+Caixias_do_Sul 46
+Chapeco 47
+Coari_Urucu 48
+Cruz 49
+Goiania 50
 175
 0 1 864
 0 2 2357

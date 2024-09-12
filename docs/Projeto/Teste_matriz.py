@@ -17,7 +17,9 @@ with open('docs/output.txt', 'w') as f:
     g.salvarEmArquivo('docs/projeto/grafo_modificado.txt')
     g.carregarDoArquivo2('docs/projeto/grafo_modificado.txt')
     g.show()
-    # Remove o vértice 7
+
+
+ # Remove o vértice 7
     n = 7
     print(f"\nGrafo apos remover o vertice:{n}")
    
@@ -28,7 +30,7 @@ with open('docs/output.txt', 'w') as f:
     g.show()
 
     print("\nGrafo apos inserir um vertice")
-    g.insereV()
+    g.insereV("Goiania")
     g.salvarEmArquivo('docs/projeto/grafo_modificado.txt')
     g.carregarDoArquivo2('docs/projeto/grafo_modificado.txt')
     g.show()
@@ -46,5 +48,4 @@ with open('docs/output.txt', 'w') as f:
 
     # Restaure a saída padrão para o console
     sys.stdout = sys.__stdout__
-
 

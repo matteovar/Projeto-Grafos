@@ -1,56 +1,56 @@
 2
 51
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
+Gru 0
+Brasilia 1
+Fortaleza 2
+Maceio 3
+Manaus 4
+Florianopolis 5
+Goiania 6
+Confins 7
+Belem 8
+Porto_Alegre 9
+Santos_Dumont 10
+Cuiaba 11
+Salvador 12
+Recife 13
+Vitoria 14
+Curitiba 15
+Natal 16
+Vira-copos 17
+Congonhas 18
+joao_pesso 19
+uberlandia 20
+Campo_Grande 21
+foz_do_Iguacu 22
+Sao_Luiz 23
+Aracaju 24
+Agua_Boa 25
+Almerim 26
+Almerim_M_dourado 27
+Alta_Floresta 28
+Altamira 29
+Apucarana 30
+Aracatuba 31
+Araguaina 32
+Barreiras 33
+Bauru-Arealva 34
+Boa_Vista 35
+Bonito 36
+Breves 37
+Cacador 38
+Caldas_Nova 39
+Campina Grande 40
+Campos_dos_Goytacazes 41
+Carajas 42
+Cararuari 43
+Caruaru 44
+Cascavel 45
+Caixias_do_Sul 46
+Chapeco 47
+Coari_Urucu 48
+Cruz 49
+Goiania 50
 175
 0 1 864
 0 2 2357
