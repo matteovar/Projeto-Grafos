@@ -13,7 +13,7 @@ def menu():
         print("6. Remover vertice")
         print("7. Remover aresta")
         print("8. Verificar conexividades")
-        print("8. Sair")
+        print("9. Sair")
         print("-----------------------")
         opcao = input("Escolha uma opção: ")
 
@@ -66,7 +66,13 @@ def menu():
             g.removeA(remover_1,remover_2)
             g.salvarEmArquivo(nome_arquivo_saida)
             g.show()
+
         elif opcao == '8':
+            if g.isConexo():
+                print("Grafo conexo\n")
+            else:
+                print("Grafo nao conexo\n")
+        elif opcao == '9':
             print("Saindo...")
             break
 

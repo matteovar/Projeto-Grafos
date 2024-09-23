@@ -153,7 +153,6 @@ class TGrafoND:
                     if self.adj[i][j] != 0.0:
                         arquivo.write(f"{i} {j} {int(self.adj[i][j])}\n")
             
-            arquivo.write("\nMatriz de Adjacência:\n")
             for i in range(self.n):
                 linha = [f"{peso if peso is not None else '∞'}" for peso in self.adj[i]]
                 arquivo.write(f"Matriz {i}: {linha}\n")
