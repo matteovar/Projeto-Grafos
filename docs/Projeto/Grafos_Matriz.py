@@ -50,7 +50,6 @@ class TGrafoND:
         self.n -= 1
 
         print(f"Vértice {v} removido com sucesso.")
-
     
     
     def dfs(self, v, visitados):
@@ -79,14 +78,6 @@ class TGrafoND:
                 return False 
 
         return True
-
-    def verificarDirecionado(self):
-            for i in range(self.n):
-                for j in range( self.n):
-                    if self.adj[i][j] != self.adj[j][i]:
-                        return True  
-            return False 
-    
     def show(self):
         print(f"\n n: {self.n:2d} ", end="")
         print(f"m: {self.m:2d}\n")
@@ -96,18 +87,6 @@ class TGrafoND:
                     print(f"Matriz[{i:2d},{w:2d}] = {self.adj[i][w]:.2f} ", end="")
                 else:
                     print(f"Matriz[{i:2d},{w:2d}] = 0.00 ", end="")
-            print("\n")
-        print("\nfim da impressao do grafo." )
-
-    def showMin(self):
-        print(f"\n n: {self.n:2d} ", end="")
-        print(f"m: {self.m:2d}\n")
-        for i in range(self.n):
-            for w in range(self.n):
-                if self.adj[i][w] != 0.0:
-                    print(f"{self.adj[i][w]:.2f} ", end="")
-                else:
-                    print("0.00 ", end="")
             print("\n")
         print("\nfim da impressao do grafo." )
 
@@ -130,11 +109,6 @@ class TGrafoND:
                 v, w, peso = map(int, linhas[i].strip().split())
                 self.insereA(v, w, peso)
 
-    def dados_base(self, nome_arquivo):
-        with open(nome_arquivo, 'r') as arquivo:
-            linhas = arquivo.readlines()
-            for linha in linhas:
-                print(linha.strip())
 
     def salvarEmArquivo(self, nome_arquivo):
         with open(nome_arquivo, 'w') as arquivo:
