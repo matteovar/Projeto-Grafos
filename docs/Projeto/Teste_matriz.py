@@ -25,6 +25,7 @@ def menu():
             arquivo = input("Digite o nome do arquivo de entrada: ")
             g = TGrafoND(0)
             g.carregarDoArquivo(arquivo)
+            g.salvarEmArquivo('docs/output.txt')
             print("Grafo carregado com sucesso!")
 
         elif opcao == '2':
@@ -37,10 +38,11 @@ def menu():
         elif opcao == '3':
             if g:
                 print("Grafo")
-                g.show()
+                g.dados_base(nome_arquivo_saida)
+
             else:
-                print("Nao tem grafo")
-        
+                print("Nao tem grafo")  
+
         elif opcao == '4':
             print("Nome do aeroporto desejado: ")
             nome = input("Nome: ")
@@ -75,6 +77,8 @@ def menu():
                 print("Grafo conexo\n")
             else:
                 print("Grafo nao conexo\n")
+
+
         elif opcao == '9':
             print("Saindo...")
             break
