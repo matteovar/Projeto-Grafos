@@ -20,6 +20,6 @@ Para facilitar a busca e planejamento de viagens, decidimos desenvolver uma ferr
 Com essa abordagem, você poderá rapidamente encontrar rotas diretas e conexões necessárias, simplificando o planejamento de suas viagens.
 
 # Imagens do Grafico
-![alt](/assets/Grafos%20-%20BRasil.png)
+![alt](/assets/Grafos.png)
 **Esta no formato do territorio brasileiro**
 
