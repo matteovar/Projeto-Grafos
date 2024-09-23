@@ -26,7 +26,7 @@ def menu():
 
         elif opcao == '2':
             if g:
-                nome_arquivo_saida = input("Digite o nome do arquivo de saída: ")
+                nome_arquivo_saida = input("Carregue o arquivo de saida: ")
                 g.salvarEmArquivo(nome_arquivo_saida)
             else:
                 print("nao foi, se fudeo")
