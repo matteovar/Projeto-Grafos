@@ -1,5 +1,5 @@
 class TGrafoND:
-    TAM_MAX_DEFAULT = 100
+    TAM_MAX_DEFAULT = 1000
     def __init__(self, n=TAM_MAX_DEFAULT):
         self.n = n 
         self.m = 0
@@ -93,9 +93,9 @@ class TGrafoND:
         for i in range(self.n):
             for w in range(self.n):
                 if self.adj[i][w] != 0.0:
-                    print(f"Adj[{i:2d},{w:2d}] = {self.adj[i][w]:.2f} ", end="")
+                    print(f"Matriz[{i:2d},{w:2d}] = {self.adj[i][w]:.2f} ", end="")
                 else:
-                    print(f"Adj[{i:2d},{w:2d}] = 0.00 ", end="")
+                    print(f"Matriz[{i:2d},{w:2d}] = 0.00 ", end="")
             print("\n")
         print("\nfim da impressao do grafo." )
 
@@ -130,7 +130,7 @@ class TGrafoND:
                 v, w, peso = map(int, linhas[i].strip().split())
                 self.insereA(v, w, peso)
 
-    def carregarDoArquivo2(self, nome_arquivo):
+    def dados_base(self, nome_arquivo):
         with open(nome_arquivo, 'r') as arquivo:
             linhas = arquivo.readlines()
             for linha in linhas:
@@ -138,8 +138,7 @@ class TGrafoND:
 
     def salvarEmArquivo(self, nome_arquivo):
         with open(nome_arquivo, 'w') as arquivo:
-            arquivo.write(f"2\n")
-            arquivo.write(f"{self.n}\n")
+            arquivo.write(f"2\n{self.n}\n")
             for i in range(self.n):
                 arquivo.write(f"{self.nomes_vertices[i]} {i}\n")
             num_arestas = 0
@@ -153,3 +152,8 @@ class TGrafoND:
                 for j in range(i+1, self.n):
                     if self.adj[i][j] != 0.0:
                         arquivo.write(f"{i} {j} {int(self.adj[i][j])}\n")
+            
+            arquivo.write("\nMatriz de Adjacência:\n")
+            for i in range(self.n):
+                linha = [f"{peso if peso is not None else '∞'}" for peso in self.adj[i]]
+                arquivo.write(f"Matriz {i}: {linha}\n")
