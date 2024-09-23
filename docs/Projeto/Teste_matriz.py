@@ -1,6 +1,9 @@
 import sys
 from Grafos_Matriz import TGrafoND  # type: ignore
 
+# Caminho arquivo para leitura: docs/projeto/ordem_das_cidades.txt
+# Caminho arquivo para saida: docs/output.txt
+
 g = None
 def menu():
     while True:
