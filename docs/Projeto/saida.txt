@@ -51,8 +51,7 @@ Caixias_do_Sul 47
 Chapeco 48
 Coari_Urucu 49
 Cruz 50
-189
-0 1 864
+188
 0 2 2357
 0 3 1915
 0 4 2700
