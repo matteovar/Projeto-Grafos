@@ -1,8 +1,9 @@
+# Matteo Domiciano Varnier
+# Andre Akio Morita Osakawa
+# Rafael de Souza Oliveira Cerqueira Tinoco
+
 import sys
 from Grafos_Matriz import TGrafoND  # type: ignore
-
-# Caminho arquivo para leitura: docs/projeto/ordem_das_cidades.txt
-# Caminho arquivo para saida: docs/output.txt
 
 g = TGrafoND()
 def menu():

@@ -1,3 +1,6 @@
+# Matteo Domiciano Varnier
+# Andre Akio Morita Osakawa
+# Rafael de Souza Oliveira Cerqueira Tinoco
 class TGrafoND:
     TAM_MAX_DEFAULT = 1000
     def __init__(self, n=TAM_MAX_DEFAULT):
