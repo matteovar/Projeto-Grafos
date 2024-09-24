@@ -2,6 +2,8 @@
 # Andre Akio Morita Osakawa
 # Rafael de Souza Oliveira Cerqueira Tinoco
 
+""" Nesse arquivo fonte está presente o menu e os seus respectivos testes importando a classe do arquivo Grafos_Matriz. """
+
 import sys
 from Grafos_Matriz import TGrafoND  # type: ignore
 
@@ -9,15 +11,16 @@ g = TGrafoND()
 def menu():
     while True:
         print("\n--- Menu de Opções ---")
-        print("1. Carregar grafo de arquivo")
-        print("2. Gravar dados no arquivo de saída (e exibir grafo)")
-        print("3. Mostrar conteudo grafo")
-        print("4. Inserir vertice")
-        print("5. Inserir aresta")
-        print("6. Remover vertice")
-        print("7. Remover aresta")
-        print("8. Verificar conexividades")
-        print("9. Sair")
+        print("1. Ler dados do arquivo de entrada")
+        print("2. Gravar dados no arquivo de saída")
+        print("3. Inserir vértice")
+        print("4. Inserir aresta")
+        print("5. Remover vértice")
+        print("6. Remover aresta")
+        print("7. Mostrar conteúdo do arquivo")
+        print("8. Mostrar grafo")
+        print("9. Verificar conexividade do grafo")
+        print("10. Encerrar a aplicação")
         print("-----------------------")
         opcao = input("Escolha uma opção: ")
 
@@ -33,17 +36,9 @@ def menu():
                 nome_arquivo_saida = input("Carregue o arquivo de saida: ")
                 g.salvarEmArquivo(nome_arquivo_saida)
             else:
-                print("nao tem")
+                print("nao tem") 
 
         elif opcao == '3':
-            if g:
-                print("Grafo")
-                g.carregarDoArquivo(nome_arquivo_saida)
-                g.show("output.txt")
-            else:
-                print("Nao tem grafo")  
-
-        elif opcao == '4':
             if g:
                 print("Nome do aeroporto desejado: ")
                 nome = input("Nome: ")
@@ -53,23 +48,23 @@ def menu():
             else:
                 print("Nao existe")
     
-        elif opcao == '5':
+        elif opcao == '4':
             if g:
-                print("Valores das arestas e do peso:")
-                valor_1 = int(input("Aresta 1:"))
-                valor_2 = int(input("Aresta 2: "))
+                print("Valores(vertices) das arestas e valor do peso:")
+                valor_1 = int(input("Vertice 1:"))
+                valor_2 = int(input("Vertice 2: "))
                 peso_inserir = int(input("Peso da aresta: "))
                 g.insereA(valor_1,valor_2,peso_inserir)
                 g.salvarEmArquivo(nome_arquivo_saida)
             else:
                 print("Nao existe")
-        elif opcao == '6':
-            remover = int(input("Valor que deseja remover: "))
+
+        elif opcao == '5':
+            remover = int(input("Valor(vertice) que deseja remover: "))
             g.removeV(remover)
             g.salvarEmArquivo(nome_arquivo_saida)
 
-
-        elif opcao == '7':
+        elif opcao == '6':
             if g:
                 remover_1 = int(input("Remover vertice 1: "))
                 remover_2 = int(input("Remover vertice 2: "))
@@ -78,14 +73,28 @@ def menu():
 
             else:
                 print("Nao tem")
+
+        elif opcao == '7':
+            if g:
+                print("Conteudo do arquivo:")
+                g.show(nome_arquivo_saida)
+            else:
+                print("Arquivo não existe.")
+
         elif opcao == '8':
+            if g:
+                print("Grafo:")
+                g.mostrarGrafo()
+            else:
+                print("Grafo não existe.")
+
+        elif opcao == '9':
             if g.isConexo():
                 print("Grafo conexo\n")
             else:
                 print("Grafo nao conexo\n")
 
-
-        elif opcao == '9':
+        elif opcao == '10':
             print("Saindo...")
             break
 

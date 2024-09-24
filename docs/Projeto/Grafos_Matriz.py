@@ -1,6 +1,10 @@
 # Matteo Domiciano Varnier
 # Andre Akio Morita Osakawa
 # Rafael de Souza Oliveira Cerqueira Tinoco
+
+""" Nesse arquivo fonte está presente as funções necessárias para realizar cada item pedido no menu, como inserção, remoção,
+    carregamento de arquivo, conexidade. """
+
 class TGrafoND:
     TAM_MAX_DEFAULT = 1000
     def __init__(self, n=TAM_MAX_DEFAULT):
@@ -18,7 +22,6 @@ class TGrafoND:
             self.m += 1
         else:
             print("Aresta já existe.")
-
 
     def insereV(self, nome_vertice):
         self.n += 1
@@ -89,13 +92,19 @@ class TGrafoND:
                 return False 
 
         return True
+    
     def show(self,nome_arquivo):
         with open(nome_arquivo, 'r') as arquivo:
             linhas = arquivo.readlines()
             for linha in linhas:
                 print(linha.strip())
         
-
+    def mostrarGrafo(self):
+        for i in range(self.n):
+            # Formate cada linha da matriz como uma string de elementos dentro de colchetes
+            linha = [f"{peso:.1f}" if peso != 0.0 else "0.0" for peso in self.adj[i]]
+            print(f"Matriz {i}: {linha}")
+    
     def carregarDoArquivo(self, nome_arquivo):
         try:
             with open(nome_arquivo, 'r') as arquivo:
@@ -118,25 +127,24 @@ class TGrafoND:
         except FileNotFoundError:
             print(f"Erro: Arquivo '{nome_arquivo}' não foi encontrado.")
 
-
-
     def salvarEmArquivo(self, nome_arquivo):
         with open(nome_arquivo, 'w') as arquivo:
             arquivo.write(f"2\n{self.n}\n")
+            
+            # Escreve os vértices e seus índices
             for i in range(self.n):
                 arquivo.write(f"{self.nomes_vertices[i]} {i}\n")
+            
+            # Conta e escreve o número de arestas
             num_arestas = 0
             for i in range(self.n):
-                for j in range(i+1, self.n):
+                for j in range(i + 1, self.n):
                     if self.adj[i][j] != 0.0:
                         num_arestas += 1
             arquivo.write(f"{num_arestas}\n")
 
+            # Escreve as arestas com seus pesos
             for i in range(self.n):
-                for j in range(i+1, self.n):
+                for j in range(i + 1, self.n):
                     if self.adj[i][j] != 0.0:
                         arquivo.write(f"{i} {j} {int(self.adj[i][j])}\n")
-            
-            for i in range(self.n):
-                linha = [f"{peso if peso is not None else '∞'}" for peso in self.adj[i]]
-                arquivo.write(f"Matriz {i}: {linha}\n")
