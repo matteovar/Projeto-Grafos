@@ -4,7 +4,7 @@ from Grafos_Matriz import TGrafoND  # type: ignore
 # Caminho arquivo para leitura: docs/projeto/ordem_das_cidades.txt
 # Caminho arquivo para saida: docs/output.txt
 
-g = None
+g = TGrafoND()
 def menu():
     while True:
         print("\n--- Menu de Opções ---")
@@ -25,53 +25,58 @@ def menu():
             arquivo = input("Digite o nome do arquivo de entrada: ")
             g = TGrafoND(0)
             g.carregarDoArquivo(arquivo)
-            g.salvarEmArquivo('docs/output.txt')
-            print("Grafo carregado com sucesso!")
+            print("Agora carregue o arquivo de saida, que ira salvar o grafo")
 
         elif opcao == '2':
             if g:
                 nome_arquivo_saida = input("Carregue o arquivo de saida: ")
                 g.salvarEmArquivo(nome_arquivo_saida)
             else:
-                print("nao foi, se fudeo")
+                print("nao tem")
 
         elif opcao == '3':
             if g:
                 print("Grafo")
-                g.dados_base(nome_arquivo_saida)
-
+                g.carregarDoArquivo(nome_arquivo_saida)
+                g.show("output.txt")
             else:
                 print("Nao tem grafo")  
 
         elif opcao == '4':
-            print("Nome do aeroporto desejado: ")
-            nome = input("Nome: ")
-            g.insereV(nome)
-            g.salvarEmArquivo(nome_arquivo_saida)
-            g.show()
+            if g:
+                print("Nome do aeroporto desejado: ")
+                nome = input("Nome: ")
+                g.insereV(nome)
+                g.salvarEmArquivo(nome_arquivo_saida)
+
+            else:
+                print("Nao existe")
     
         elif opcao == '5':
-            print("Valores das arestas e do peso:")
-            valor_1 = int(input("Aresta 1:"))
-            valor_2 = int(input("Aresta 2: "))
-            peso_inserir = int(input("Peso da aresta: "))
-            g.insereA(valor_1,valor_2,peso_inserir)
-            g.salvarEmArquivo(nome_arquivo_saida)
-            g.show()
-        
+            if g:
+                print("Valores das arestas e do peso:")
+                valor_1 = int(input("Aresta 1:"))
+                valor_2 = int(input("Aresta 2: "))
+                peso_inserir = int(input("Peso da aresta: "))
+                g.insereA(valor_1,valor_2,peso_inserir)
+                g.salvarEmArquivo(nome_arquivo_saida)
+            else:
+                print("Nao existe")
         elif opcao == '6':
             remover = int(input("Valor que deseja remover: "))
             g.removeV(remover)
             g.salvarEmArquivo(nome_arquivo_saida)
-            g.show()
+
 
         elif opcao == '7':
-            remover_1 = int(input("Remover vertice 1: "))
-            remover_2 = int(input("Remover vertice 2: "))
-            g.removeA(remover_1,remover_2)
-            g.salvarEmArquivo(nome_arquivo_saida)
-            g.show()
+            if g:
+                remover_1 = int(input("Remover vertice 1: "))
+                remover_2 = int(input("Remover vertice 2: "))
+                g.removeA(remover_1,remover_2)
+                g.salvarEmArquivo(nome_arquivo_saida)
 
+            else:
+                print("Nao tem")
         elif opcao == '8':
             if g.isConexo():
                 print("Grafo conexo\n")

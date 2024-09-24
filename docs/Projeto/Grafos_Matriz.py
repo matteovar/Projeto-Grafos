@@ -6,12 +6,16 @@ class TGrafoND:
         self.adj = [[0.0 for _ in range(n)] for _ in range(n)]  
 
     def insereA(self, v, w, peso=1.0):
+        if v >= self.n or w >= self.n:
+            print("Um ou ambos os vértices não existem.")
+            return  # Retorna ao menu
         if self.adj[v][w] == 0.0 and self.adj[w][v] == 0.0:
             self.adj[v][w] = peso
             self.adj[w][v] = peso
-            self.m += 1 
+            self.m += 1
         else:
-            print("Aresta ja existe")
+            print("Aresta já existe.")
+
 
     def insereV(self, nome_vertice):
         self.n += 1
@@ -23,10 +27,15 @@ class TGrafoND:
             self.adj[i].append(0.0)   
 
     def removeA(self, v, w):
+        if v >= self.n or w >= self.n:
+            print("Um ou ambos os vértices não existem.")
+            return  # Retorna ao menu
         if self.adj[v][w] != 0.0 and self.adj[w][v] != 0.0:
             self.adj[v][w] = 0.0
             self.adj[w][v] = 0.0
             self.m -= 1
+        else:
+            print("Aresta não existe.")
 
     def removeV(self, v):
         if v >= self.n:
@@ -50,7 +59,6 @@ class TGrafoND:
         self.n -= 1
 
         print(f"Vértice {v} removido com sucesso.")
-    
     
     def dfs(self, v, visitados):
         visitados[v] = True  
@@ -78,36 +86,35 @@ class TGrafoND:
                 return False 
 
         return True
-    def show(self):
-        print(f"\n n: {self.n:2d} ", end="")
-        print(f"m: {self.m:2d}\n")
-        for i in range(self.n):
-            for w in range(self.n):
-                if self.adj[i][w] != 0.0:
-                    print(f"Matriz[{i:2d},{w:2d}] = {self.adj[i][w]:.2f} ", end="")
-                else:
-                    print(f"Matriz[{i:2d},{w:2d}] = 0.00 ", end="")
-            print("\n")
-        print("\nfim da impressao do grafo." )
-
-    def carregarDoArquivo(self, nome_arquivo):
+    def show(self,nome_arquivo):
         with open(nome_arquivo, 'r') as arquivo:
             linhas = arquivo.readlines()
-            tipo_grafo = int(linhas[0].strip())
-            num_vertices = int(linhas[1].strip())
-            self.nomes_vertices = []
-            for i in range(2, 2 + num_vertices):
-                descricao, indice = linhas[i].strip().rsplit(maxsplit=1)
-                self.nomes_vertices.append(descricao)
+            for linha in linhas:
+                print(linha.strip())
+        
 
-            num_arestas_index = 2 + num_vertices
-            num_arestas = int(linhas[num_arestas_index].strip())
-            self.n = num_vertices
-            self.adj = [[0.0 for _ in range(self.n)] for _ in range(self.n)]
-            self.m = 0 
-            for i in range(num_arestas_index + 1, num_arestas_index + 1 + num_arestas):
-                v, w, peso = map(int, linhas[i].strip().split())
-                self.insereA(v, w, peso)
+    def carregarDoArquivo(self, nome_arquivo):
+        try:
+            with open(nome_arquivo, 'r') as arquivo:
+                linhas = arquivo.readlines()
+                tipo_grafo = int(linhas[0].strip())
+                num_vertices = int(linhas[1].strip())
+                self.nomes_vertices = []
+                for i in range(2, 2 + num_vertices):
+                    descricao, indice = linhas[i].strip().rsplit(maxsplit=1)
+                    self.nomes_vertices.append(descricao)
+
+                num_arestas_index = 2 + num_vertices
+                num_arestas = int(linhas[num_arestas_index].strip())
+                self.n = num_vertices
+                self.adj = [[0.0 for _ in range(self.n)] for _ in range(self.n)]
+                self.m = 0
+                for i in range(num_arestas_index + 1, num_arestas_index + 1 + num_arestas):
+                    v, w, peso = map(int, linhas[i].strip().split())
+                    self.insereA(v, w, peso)
+        except FileNotFoundError:
+            print(f"Erro: Arquivo '{nome_arquivo}' não foi encontrado.")
+
 
 
     def salvarEmArquivo(self, nome_arquivo):
