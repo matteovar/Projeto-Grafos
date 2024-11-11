@@ -20,9 +20,14 @@ def menu():
         print("7. Mostrar conteúdo do arquivo")
         print("8. Mostrar grafo")
         print("9. Verificar conexividade do grafo")
-        print("10. Encerrar a aplicação")
+        print("10. Coloracao")
+        print("11. Dijkstra")
+        print("12. Caminho Euleriano")
+        print("13. Caminho Hamiltoniano")
+        print("14. Encerrar a aplicação")
         print("-----------------------")
         opcao = input("Escolha uma opção: ")
+        print("\n")
 
 
         if opcao == '1':
@@ -93,8 +98,30 @@ def menu():
                 print("Grafo conexo\n")
             else:
                 print("Grafo nao conexo\n")
-
+        
         elif opcao == '10':
+            g.coloracao()
+
+        elif opcao =='11':
+            g.mostrarCaminhoMinimo()
+
+
+        elif opcao == '12':
+            tem_caminho_euleriano, vertices_impares = g.temCaminhoEuleriano()
+            if tem_caminho_euleriano:
+                print("O grafo tem um caminho euleriano.")
+                print(f"Vértices com grau ímpar: {vertices_impares}")
+            else:
+                print("O grafo não tem um caminho euleriano.")
+
+        elif opcao == '13':
+            tem_caminho_hamiltoniano, caminho_hamiltoniano = g.temCaminhoHamiltoniano()
+            if tem_caminho_hamiltoniano:
+                print("O grafo tem um caminho hamiltoniano.")
+            else:
+                print("O grafo não tem um caminho hamiltoniano.")
+
+        elif opcao == '14':
             print("Saindo...")
             break
 
