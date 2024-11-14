@@ -1,9 +1,3 @@
-# Matteo Domiciano Varnier
-# Andre Akio Morita Osakawa
-# Rafael de Souza Oliveira Cerqueira Tinoco
-
-""" Nesse arquivo fonte está presente o menu e os seus respectivos testes importando a classe do arquivo Grafos_Matriz. """
-
 import sys
 from Grafos_Matriz import TGrafoND  # type: ignore
 

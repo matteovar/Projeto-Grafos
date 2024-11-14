@@ -1,10 +1,3 @@
-# Matteo Domiciano Varnier
-# Andre Akio Morita Osakawa
-# Rafael de Souza Oliveira Cerqueira Tinoco
-
-""" Nesse arquivo fonte está presente as funções necessárias para realizar cada item pedido no menu, como inserção, remoção,
-    carregamento de arquivo, conexidade. """
-
 class TGrafoND:
     TAM_MAX_DEFAULT = 1000
 
@@ -13,8 +6,8 @@ class TGrafoND:
         self.m = 0
         self.adj = [[0.0 for _ in range(n)] for _ in range(n)]
         self.nomes_vertices = [f"V{i}" for i in range(n)]  # Nomes padrão para os vértices
-        self.nome_para_indice = {}
-        self.indice_para_nome = {}
+        self.nome_para_indice = {f"V{i}": i for i in range(n)}
+        self.indice_para_nome = {i: f"V{i}" for i in range(n)}
 
     def insereA(self, v, w, peso=1.0):
         if v >= self.n or w >= self.n:
@@ -28,8 +21,14 @@ class TGrafoND:
             print("Aresta já existe.")
 
     def insereV(self, nome_vertice):
+        if nome_vertice in self.nome_para_indice:
+            print(f"Vértice {nome_vertice} já existe.")
+            return
+
         self.n += 1
         self.nomes_vertices.append(nome_vertice)  # Adiciona o nome do novo vértice
+        self.nome_para_indice[nome_vertice] = self.n - 1
+        self.indice_para_nome[self.n - 1] = nome_vertice
         nova_linha = [0.0] * self.n
         self.adj.append(nova_linha)
 
@@ -192,7 +191,7 @@ class TGrafoND:
         return {i for i in range(self.n) if self.adj[v][i] != 0.0}
 
     def mostrarCaminhoMinimo(self):
-    # Exibe a lista de aeroportos disponíveis
+        # Exibe a lista de aeroportos disponíveis
         print("Aeroportos disponíveis:")
         for nome in self.nomes_vertices:
             print(nome)
@@ -232,8 +231,6 @@ class TGrafoND:
             caminho.reverse()
             print(f"Caminho: {caminho}")
 
-
-
     def coloracao(self):
         n = self.n
         C = [None] * n  # Lista de cores dos vértices (None indica não colorido)
@@ -265,7 +262,6 @@ class TGrafoND:
 
         print(f"\nNúmero total de cores usadas: {k}")
 
-    
     def temCaminhoEuleriano(self):
         if not self.isConexo():
             return False, []
